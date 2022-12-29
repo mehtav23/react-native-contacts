@@ -34,7 +34,6 @@ const ContactList = ({ list, navigation }) => {
 const styles = StyleSheet.create({
     listView: {
         marginHorizontal: '5%',
-        height: '60%',
     },
     listItem: {
         marginHorizontal: '5%',

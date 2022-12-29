@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import { useDispatch } from 'react-redux';
 import ContactForm from '../components/ContactFormComponent';
 import HeaderComponent from "../components/HeaderComponent";
@@ -9,6 +10,7 @@ const AddNewScreen = ({navigation}) => {
     const dispatch = useDispatch();
     
     return (
+        <ScrollView>
         <View>
             <HeaderComponent title='Add New Contact'></HeaderComponent>
             <View style={styles.formContainer}>
@@ -21,8 +23,9 @@ const AddNewScreen = ({navigation}) => {
                     
                 </ContactForm>
             </View>
-
-        </View>)
+        </View>
+        </ScrollView>
+    );
 }
 
 const styles = StyleSheet.create({

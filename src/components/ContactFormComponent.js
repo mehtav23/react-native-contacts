@@ -55,17 +55,18 @@ const style = StyleSheet.create({
     textStyle: {
         fontSize: 18,
         marginBottom: 10,
-        marginHorizontal: '2%'
+        marginHorizontal: '2%',
+        width: '100%'
     },
     textInputStyle: {
         alignContent: 'flex-start',
         marginHorizontal: '2%',
         marginBottom: '1%',
-        height: 40,
         borderWidth: 1,
         borderColor: 'black',
         borderRadius: 8,
         padding: 10,
+        with:'100%',
     },
     buttonStyle: {
         marginTop: 20,

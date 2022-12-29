@@ -11,9 +11,9 @@ const HeaderComponent = ({ title }) => {
 
 const styleSheet = StyleSheet.create({
   layout: {
-    height: 50,
     borderWidth: 1,
     borderColor: "black",
+    width: '100%', // Change width to '100%'
   },
   headerContent: {
     fontSize: 35,

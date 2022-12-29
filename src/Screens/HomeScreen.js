@@ -5,6 +5,7 @@ import ContactList from "../components/ContactList";
 import HeaderComponent from "../components/HeaderComponent";
 import { loadAllContacts, searchContact } from "../redux/actions/ContactsActions";
 import { Ionicons } from '@expo/vector-icons'; 
+import { ScrollView } from "react-native-gesture-handler";
 
 const HomeScreen = ({contacts, onChangeText, loadAllContacts, navigation}) => {
 
@@ -12,27 +13,28 @@ const HomeScreen = ({contacts, onChangeText, loadAllContacts, navigation}) => {
         loadAllContacts();
     }, [])
     return (
-        <View>
-            <HeaderComponent title='Contacts'></HeaderComponent>
-            <View style={styles.addNewIcon}>
-                <Ionicons 
-                    name="person-add"
-                    size={40}
-                    color="black"
-                    onPress={() => navigation.navigate('AddNew')} />
-            </View>
+        <ScrollView>
             <View>
-                <TextInput 
-                    autoCapitalize={false}
-                    autoCorrect={false}
-                    style={styles.textInputStyle}
-                    placeholder='Search'
-                    onChangeText={text => onChangeText(text)}>
-                </TextInput>
+                <HeaderComponent title='Contacts'></HeaderComponent>
+                <View style={styles.addNewIcon}>
+                    <Ionicons 
+                        name="person-add"
+                        size={40}
+                        color="black"
+                        onPress={() => navigation.navigate('AddNew')} />
+                </View>
+                <View>
+                    <TextInput 
+                        autoCapitalize={false}
+                        autoCorrect={false}
+                        style={styles.textInputStyle}
+                        placeholder='Search'
+                        onChangeText={text => onChangeText(text)}>
+                    </TextInput>
+                </View>
+                <ContactList list={contacts.contacts}></ContactList>
             </View>
-            <ContactList list={contacts.contacts}></ContactList>
-            
-        </View>
+        </ScrollView>
     );
 }
 
@@ -44,7 +46,6 @@ const styles = StyleSheet.create({
         alignContent: 'flex-start',
         marginHorizontal: '2%',
         marginTop: '10%',
-        height: 40,
         borderWidth: 1,
         borderColor: 'black',
         borderRadius: 8,
