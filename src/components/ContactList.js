@@ -13,7 +13,7 @@ const ContactList = ({ list, navigation }) => {
   return (
     <View style={styles.listView}>
       <FlatList
-        keyExtractor={(data) => data.primaryNumber}
+        keyExtractor={(data) => data.id}
         data={list}
         renderItem={({ item }) => {
           return (
