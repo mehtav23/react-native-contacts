@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, StyleSheet, TextInput, Text } from 'react-native';
+import { View, StyleSheet, TextInput, Text, PixelRatio } from 'react-native';
 import { connect } from "react-redux";
 import ContactList from "../components/ContactList";
 import HeaderComponent from "../components/HeaderComponent";
@@ -19,7 +19,7 @@ const HomeScreen = ({contacts, onChangeText, loadAllContacts, navigation}) => {
                 <View style={styles.addNewIcon}>
                     <Ionicons 
                         name="person-add"
-                        size={40}
+                        size={40 * PixelRatio.getFontScale()}
                         color="black"
                         onPress={() => navigation.navigate('AddNew')} />
                 </View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, PixelRatio } from 'react-native';
 import ContactForm from '../components/ContactFormComponent';
 import HeaderComponent from '../components/HeaderComponent';
 import { MaterialIcons } from '@expo/vector-icons'; 
@@ -16,7 +16,7 @@ const ContactDetailScreen = ({navigation}) => {
                 <View style={styles.addNewIcon}>
                 <MaterialIcons
                     name="edit"
-                    size={24}
+                    size={24 * PixelRatio.getFontScale()}
                     color="black"
                     onPress={() => navigation.navigate('Update', { contact: item})}  />
                 </View>
