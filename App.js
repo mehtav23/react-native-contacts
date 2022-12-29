@@ -6,6 +6,7 @@ import store from "./src/redux/store/store";
 import AddNewScreen from "./src/Screens/AddNewScreen";
 import ContactDetailScreen from "./src/Screens/ContactDetailScreen";
 import UpdateScreen from "./src/Screens/UpdateScreen";
+import {Text, TextInput} from 'react-native';
 
 
 const navigator = createStackNavigator(
@@ -21,6 +22,18 @@ const navigator = createStackNavigator(
     }
   }
 )
+
+    
+    
+if (Text.defaultProps == null) {
+  Text.defaultProps = {};
+  Text.defaultProps.allowFontScaling = false;
+}
+
+if (TextInput.defaultProps == null) {
+  TextInput.defaultProps = {};
+  TextInput.defaultProps.allowFontScaling = false;
+}
 
 let Navigation = createAppContainer(navigator);
 
