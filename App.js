@@ -7,31 +7,29 @@ import AddNewScreen from "./src/Screens/AddNewScreen";
 import ContactDetailScreen from "./src/Screens/ContactDetailScreen";
 import UpdateScreen from "./src/Screens/UpdateScreen";
 
-
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
     AddNew: AddNewScreen,
     Details: ContactDetailScreen,
-    Update: UpdateScreen
-  }, {
+    Update: UpdateScreen,
+  },
+  {
     initialRouteName: "Home",
     defaultNavigationOptions: {
-      title: ''
-    }
+      title: "",
+    },
   }
-)
+);
 
 let Navigation = createAppContainer(navigator);
 
-
-const App = () =>{
+const App = () => {
   return (
     <Provider store={store}>
       <Navigation />
     </Provider>
   );
-}
+};
 
 export default App;
-

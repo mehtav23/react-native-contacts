@@ -13,11 +13,11 @@ const styleSheet = StyleSheet.create({
   layout: {
     borderWidth: 1,
     borderColor: "black",
-    width: '100%', // Change width to '100%'
+    width: "100%", // Change width to '100%'
   },
   headerContent: {
     fontSize: 35,
-    padding:4
+    padding: 4,
   },
 });
 
