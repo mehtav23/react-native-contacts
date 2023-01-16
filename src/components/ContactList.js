@@ -9,7 +9,7 @@ import {
 import { withNavigation } from "react-navigation";
 
 const ContactList = ({ list, navigation }) => {
-  const _onPress = (item) => {
+  const goToDetails = (item) => {
     navigation.navigate("Details", {
       item,
     });
@@ -22,17 +22,15 @@ const ContactList = ({ list, navigation }) => {
         data={list}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity
+            <TouchableOpacity testID={item.id}
               onPress={() => {
-                _onPress(item);
+                goToDetails(item);
               }}
             >
               <View style={styles.listItem}>
                 <Text style={styles.listViewName}>
                   {item.firstName + " " + item.lastName}
                 </Text>
-                <Text>{item.primaryNumber}</Text>
-                <Text>{item.email}</Text>
               </View>
             </TouchableOpacity>
           );
@@ -44,14 +42,18 @@ const ContactList = ({ list, navigation }) => {
 
 const styles = StyleSheet.create({
   listView: {
-    marginHorizontal: "5%",
+    marginHorizontal: "1%",
+    marginBottom: "5%"
   },
   listItem: {
     marginHorizontal: "5%",
-    marginBottom: 5,
+    marginBottom: '5%',
+    borderBottomWidth: 1,
+    borderBottomColor: 'grey'
   },
   listViewName: {
     fontSize: 20,
+    paddingBottom: 10
   },
 });
 

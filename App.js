@@ -25,7 +25,7 @@ const navigator = createStackNavigator(
 let Navigation = createAppContainer(navigator);
 
 const App = () => {
-  return (
+  return ( 
     <Provider store={store}>
       <Navigation />
     </Provider>
