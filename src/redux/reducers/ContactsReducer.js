@@ -17,7 +17,7 @@ const ContactsReducer = (state = InitialState, action) => {
       });
       return { ...state, contacts: matchingContacts };
     case ActionType.ADD_CONTACT:
-      let contacts = state.contacts;
+      let contacts = state.contacts ? state.contacts : [];
       const data = action.payload;
       data.id = uuidv4();
       contacts.push(data);
