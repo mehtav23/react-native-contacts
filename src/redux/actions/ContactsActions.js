@@ -15,7 +15,3 @@ export const addContact = (data) => {
 export const updateContact = (data) => {
   return { type: actions.UPDATE_CONTACT, payload: data };
 };
-
-export const deleteContact = (data) => {
-  return { type: actions.DELETE_CONTACT, payload: data };
-};
