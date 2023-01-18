@@ -40,7 +40,6 @@ describe('contacts reducer', () => {
         lastName: 'Malhotra',
         email: 'ravi@gmail.com',
         primaryNumber: "+918080142761",}));
-        console.log('state', state);
         expect(state.contacts[0].firstName).toEqual('RaviKishen');
     });
 })
