@@ -31,7 +31,6 @@ const ContactsReducer = (state = InitialState, action) => {
     case ActionType.UPDATE_CONTACT:
       let obj = state.contacts;
       let index = obj.findIndex((contact) => contact.id === action.payload.id);
-      console.log(index, action);
       obj[index] = action.payload;
       return { ...state, obj };
 

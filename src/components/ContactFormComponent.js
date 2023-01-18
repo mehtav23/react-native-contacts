@@ -13,6 +13,7 @@ const ContactForm = ({ onSave, data, isEditable, newForm }) => {
     <View style={{ marginTop: 10 }}>
       <Text style={style.textStyle}>First Name</Text>
       <TextInput
+        testID="first-name-input"
         style={style.textInputStyle}
         onChangeText={(text) => setFirstName(text)}
         value={firstName}
@@ -20,6 +21,7 @@ const ContactForm = ({ onSave, data, isEditable, newForm }) => {
       ></TextInput>
       <Text style={style.textStyle}>Last Name</Text>
       <TextInput
+        testID="last-name-input"
         style={style.textInputStyle}
         onChangeText={(text) => setLastName(text)}
         value={lastName}
@@ -27,6 +29,7 @@ const ContactForm = ({ onSave, data, isEditable, newForm }) => {
       ></TextInput>
       <Text style={style.textStyle}>Phone Number</Text>
       <TextInput
+        testID="primary-number-input"
         style={style.textInputStyle}
         keyboardType={"phone-pad"}
         onChangeText={(text) => setPrimaryNumber(text)}
@@ -35,6 +38,7 @@ const ContactForm = ({ onSave, data, isEditable, newForm }) => {
       ></TextInput>
       <Text style={style.textStyle}>Email</Text>
       <TextInput
+        testID="email-input"
         style={style.textInputStyle}
         onChangeText={(text) => setEmail(text)}
         value={email}
@@ -42,6 +46,7 @@ const ContactForm = ({ onSave, data, isEditable, newForm }) => {
       ></TextInput>
       {newForm || isEditable ? (
         <Pressable
+          testID="save-button"
           style={style.buttonStyle}
           onPress={() => {
             onSave({ firstName, lastName, primaryNumber, email, id: data?.id });

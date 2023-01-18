@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { View, StyleSheet, TextInput, Text, PixelRatio } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
+import { View, StyleSheet, TextInput } from "react-native";
 import { connect } from "react-redux";
 import ContactList from "../components/ContactList";
 import HeaderComponent from "../components/HeaderComponent";
@@ -11,27 +12,25 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 
 const HomeScreen = ({
-  contacts,
-  onChangeText,
-  loadAllContacts,
   navigation,
 }) => {
+  const contacts = useSelector( state => state.contacts); 
+  const dispatch = useDispatch();
   useEffect(() => {
-    loadAllContacts();
+    dispatch(loadAllContacts());
   }, []);
   return (
     <>
       <ScrollView>
         <View>
           <HeaderComponent title="Contacts"></HeaderComponent>
-
           <View>
             <TextInput
               autoCapitalize={false}
               autoCorrect={false}
               style={styles.textInputStyle}
               placeholder="Search"
-              onChangeText={(text) => onChangeText(text)}
+              onChangeText={(text) => dispatch(searchContact(text))}
             ></TextInput>
           </View>
           <ContactList list={contacts.contacts}></ContactList>
@@ -72,17 +71,5 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
 });
-const mapStateToProps = (state) => ({
-  contacts: state.contacts,
-});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    loadAllContacts: () => dispatch(loadAllContacts()),
-    onChangeText: (text) => {
-      dispatch(searchContact(text));
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
+export default HomeScreen;
